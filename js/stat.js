@@ -1,3 +1,32 @@
+// функция определения максимального значения в массиве
+
+var getMax = function(array) {
+  var max = -1;
+
+  for (i = 0; i < array.length;  i++) {
+    var arrayItem = array[i];
+    if (arrayItem > max) {
+      max = arrayItem;
+    }
+  }
+  return max;
+}
+
+var getMaxIndex = function(array) {
+  var max = -1;
+  var maxIndex = -1;
+
+  for (i = 0; i < array.length;  i++) {
+    var arrayItem = array[i];
+    if (arrayItem > max) {
+      max = arrayItem;
+      maxIndex = i;
+    }
+  }
+  return maxIndex;
+}
+
+// функция генерации случайного числа в диапазоне
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -12,17 +41,11 @@ window.renderStatistics = function(ctx, names, times) {
   ctx.fillText('Ура Вы победили!', 230, 40);
   ctx.fillText('Список результатов:', 120, 60 );
 
-  var max = -1;
-  var maxIndex = -1;
 
-  for (i = 0; i < times.length;  i++) {
-    var time = times[i];
-    if (time > max) {
-      max = time;
-      maxIndex = i;
-    }
-  }
-  //гистограмма:
+  var max =  getMax(times);
+  console.log(getMaxIndex(times));
+
+  // гистограмма:
   var histogramHeight = 150;
   var step = histogramHeight / (max - 0);
   var initialX = 140;
