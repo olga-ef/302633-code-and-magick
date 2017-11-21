@@ -1,9 +1,11 @@
+'use strict';
+
 // функция определения максимального значения в массиве
 
-var getMax = function(array) {
+var getMax = function (array) {
   var max = -1;
 
-  for (i = 0; i < array.length;  i++) {
+  for (var i = 0; i < array.length; i++) {
     var arrayItem = array[i];
     if (arrayItem > max) {
       max = arrayItem;
@@ -12,26 +14,12 @@ var getMax = function(array) {
   return max;
 }
 
-var getMaxIndex = function(array) {
-  var max = -1;
-  var maxIndex = -1;
-
-  for (i = 0; i < array.length;  i++) {
-    var arrayItem = array[i];
-    if (arrayItem > max) {
-      max = arrayItem;
-      maxIndex = i;
-    }
-  }
-  return maxIndex;
-}
-
 // функция генерации случайного числа в диапазоне
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.fillRect(110, 20, 420, 270);
   ctx.fillStyle = '#fff';
@@ -39,11 +27,9 @@ window.renderStatistics = function(ctx, names, times) {
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура Вы победили!', 230, 40);
-  ctx.fillText('Список результатов:', 120, 60 );
+  ctx.fillText('Список результатов:', 120, 60);
 
-
-  var max =  getMax(times);
-  console.log(getMaxIndex(times));
+  var max = getMax(times);
 
   // гистограмма:
   var histogramHeight = 150;
@@ -63,7 +49,7 @@ window.renderStatistics = function(ctx, names, times) {
     }
     ctx.fillRect(initialX + indent * i, initialY - times[i] * step, barWidth, times[i] * step);
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillText(names[i], initialX  + indent * i, initialY + paddingTop);
+    ctx.fillText(names[i], initialX + indent * i, initialY + paddingTop);
     ctx.fillText(Math.floor(times[i]), initialX + indent * i, initialY - times[i] * step - paddingBottom);
   }
 }
