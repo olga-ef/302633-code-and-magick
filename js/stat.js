@@ -12,7 +12,7 @@ var getMax = function (array) {
     }
   }
   return max;
-}
+};
 
 // функция генерации случайного числа в диапазоне
 function getRandomFloat(min, max) {
@@ -52,4 +52,4 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(names[i], initialX + indent * i, initialY + paddingTop);
     ctx.fillText(Math.floor(times[i]), initialX + indent * i, initialY - times[i] * step - paddingBottom);
   }
-}
+};
