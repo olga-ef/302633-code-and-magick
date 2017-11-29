@@ -12,28 +12,16 @@ var getRandomIndex = function (array) {
   return Math.floor(Math.random() * array.length);
 };
 
-var wizards = [
-  {
+var wizards = [];
+for (i = 0; i < 4; i++) {
+  var similarWizard = {
     'name': wizardNames[getRandomIndex(wizardNames)] + ' ' + wizardSurnames[getRandomIndex(wizardSurnames)],
     'coatColor': coatColors[getRandomIndex(coatColors)],
     'eyesColor': eyesColors[getRandomIndex(eyesColors)]
-  },
-  {
-    'name': wizardNames[getRandomIndex(wizardNames)] + ' ' + wizardSurnames[getRandomIndex(wizardSurnames)],
-    'coatColor': coatColors[getRandomIndex(coatColors)],
-    'eyesColor': eyesColors[getRandomIndex(eyesColors)]
-  },
-  {
-    'name': wizardNames[getRandomIndex(wizardNames)] + ' ' + wizardSurnames[getRandomIndex(wizardSurnames)],
-    'coatColor': coatColors[getRandomIndex(coatColors)],
-    'eyesColor': eyesColors[getRandomIndex(eyesColors)]
-  },
-  {
-    'name': wizardNames[getRandomIndex(wizardNames)] + ' ' + wizardSurnames[getRandomIndex(wizardSurnames)],
-    'coatColor': coatColors[getRandomIndex(coatColors)],
-    'eyesColor': eyesColors[getRandomIndex(eyesColors)]
-  }
-];
+  };
+  wizards.push(similarWizard);
+}
+
 // Создание дом элемента
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
